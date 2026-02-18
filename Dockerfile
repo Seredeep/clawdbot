@@ -58,4 +58,4 @@ USER node
 # For container platforms requiring external health checks:
 #   1. Set OPENCLAW_GATEWAY_TOKEN or OPENCLAW_GATEWAY_PASSWORD env var
 #   2. Override CMD: ["node","openclaw.mjs","gateway","--allow-unconfigured","--bind","lan"]
-CMD ["sh", "-c", "rm -f /home/node/.openclaw/openclaw.json && node openclaw.mjs gateway --allow-unconfigured"]
+CMD ["sh", "-c", "mkdir -p /home/node/.openclaw/credentials && rm -f /home/node/.openclaw/openclaw.json && echo '{\"version\":1,\"allowFrom\":[\"8164290936\",\"serendeepi\"]}' > /home/node/.openclaw/credentials/telegram-default-allowFrom.json && node openclaw.mjs gateway --allow-unconfigured"]
